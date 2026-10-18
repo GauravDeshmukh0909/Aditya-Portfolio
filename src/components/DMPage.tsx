@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
-import { Mail, Send, Check, Copy, ArrowLeft, AlertCircle, Sparkles, MessageSquare, ArrowUpRight } from 'lucide-react';
-import { buildMailtoUrl } from '../utils/driveParser';
+import React, { useState } from "react";
+import {
+  Mail,
+  Send,
+  Check,
+  Copy,
+  ArrowLeft,
+  AlertCircle,
+  Sparkles,
+  MessageSquare,
+  ArrowUpRight,
+} from "lucide-react";
+import { buildMailtoUrl } from "../utils/driveParser";
 
 interface DMPageProps {
   contactEmail: string;
@@ -11,29 +21,34 @@ interface DMPageProps {
 export const DMPage: React.FC<DMPageProps> = ({
   contactEmail,
   onBackToPortfolio,
-  profileImageUrl = '/profile.jpg',
+  profileImageUrl = "/profile.jpg",
 }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [projectType, setProjectType] = useState('Map Animation');
-  const [budget, setBudget] = useState('Standard Turnaround (3-5 days)');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [projectType, setProjectType] = useState("Map Animation");
+  const [budget, setBudget] = useState("Standard Turnaround (3-5 days)");
+  const [message, setMessage] = useState("");
 
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    message?: string;
+  }>({});
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedDraft, setCopiedDraft] = useState(false);
-  const [lastMailtoUrl, setLastMailtoUrl] = useState('');
+  const [lastMailtoUrl, setLastMailtoUrl] = useState("");
 
   const validate = () => {
     const errs: { name?: string; email?: string; message?: string } = {};
-    if (!name.trim()) errs.name = 'Please enter your name or channel handle';
+    if (!name.trim()) errs.name = "Please enter your name or channel handle";
     if (!email.trim()) {
-      errs.email = 'Please provide your email address';
+      errs.email = "Please provide your email address";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      errs.email = 'Please enter a valid email address';
+      errs.email = "Please enter a valid email address";
     }
-    if (!message.trim()) errs.message = 'Please provide details about your project';
+    if (!message.trim())
+      errs.message = "Please provide details about your project";
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -63,7 +78,7 @@ export const DMPage: React.FC<DMPageProps> = ({
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2500);
     } catch (e) {
-      console.warn('Copy failed', e);
+      console.warn("Copy failed", e);
     }
   };
 
@@ -74,7 +89,7 @@ export const DMPage: React.FC<DMPageProps> = ({
       setCopiedDraft(true);
       setTimeout(() => setCopiedDraft(false), 2500);
     } catch (e) {
-      console.warn('Copy draft failed', e);
+      console.warn("Copy draft failed", e);
     }
   };
 
@@ -104,21 +119,28 @@ export const DMPage: React.FC<DMPageProps> = ({
             <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-stone-900" />
           </div>
           <div className="text-left">
-            <div className="text-xs font-bold text-stone-900 dark:text-white">Aditya &bull; EnoughEditz</div>
-            <div className="text-[11px] text-stone-500 dark:text-stone-400">Direct creator intake</div>
+            <div className="text-xs font-bold text-stone-900 dark:text-white">
+              Aditya &bull; EnoughEditz
+            </div>
+            <div className="text-[11px] text-stone-500 dark:text-stone-400">
+              Direct creator intake
+            </div>
           </div>
         </div>
 
         <div className="flex items-center justify-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-500 dark:text-stone-400 mb-3">
           <span>Client Intake</span>
-          <span className="text-orange-500" aria-hidden="true">/</span>
+          <span className="text-orange-500" aria-hidden="true">
+            /
+          </span>
           <span>Direct Inquiry</span>
         </div>
         <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white">
           Commission an Edit
         </h1>
         <p className="mt-4 text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto leading-relaxed">
-          Provide your project scope, reference videos, and delivery deadline below to compose your project inquiry.
+          Provide your project scope, reference videos, and delivery deadline
+          below to compose your project inquiry.
         </p>
       </div>
 
@@ -134,11 +156,17 @@ export const DMPage: React.FC<DMPageProps> = ({
                 Email draft prepared in your mail app
               </h3>
               <p className="mt-1.5 text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
-                Your email client has been prepared with your inquiry addressed to{' '}
-                <strong className="text-orange-700 dark:text-orange-300 font-semibold">{contactEmail}</strong>.
+                Your email client has been prepared with your inquiry addressed
+                to{" "}
+                <strong className="text-orange-700 dark:text-orange-300 font-semibold">
+                  {contactEmail}
+                </strong>
+                .
               </p>
               <p className="mt-3 text-xs font-semibold text-orange-800 dark:text-orange-300 bg-orange-100/90 dark:bg-orange-900/40 p-3 rounded-xl inline-block border border-orange-200 dark:border-orange-800">
-                Notice: Please review and click &ldquo;Send&rdquo; inside your email application. The browser prepares the draft; your email app sends it.
+                Notice: Please review and click &ldquo;Send&rdquo; inside your
+                email application. The browser prepares the draft; your email
+                app sends it.
               </p>
 
               {/* Fallback actions */}
@@ -155,16 +183,28 @@ export const DMPage: React.FC<DMPageProps> = ({
                   onClick={handleCopyDraft}
                   className="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-semibold text-stone-800 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 shadow-xs"
                 >
-                  {copiedDraft ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
-                  <span>{copiedDraft ? 'Draft Copied!' : 'Copy Formatted Draft'}</span>
+                  {copiedDraft ? (
+                    <Check className="h-4 w-4 text-emerald-500" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                  <span>
+                    {copiedDraft ? "Draft Copied!" : "Copy Formatted Draft"}
+                  </span>
                 </button>
 
                 <button
                   onClick={handleCopyEmail}
                   className="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-semibold text-stone-800 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 shadow-xs"
                 >
-                  {copiedEmail ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
-                  <span>{copiedEmail ? 'Email Copied!' : 'Copy Email Address'}</span>
+                  {copiedEmail ? (
+                    <Check className="h-4 w-4 text-emerald-500" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                  <span>
+                    {copiedEmail ? "Email Copied!" : "Copy Email Address"}
+                  </span>
                 </button>
               </div>
             </div>
@@ -178,8 +218,12 @@ export const DMPage: React.FC<DMPageProps> = ({
           {/* Name & Email row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="dm-name" className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
-                Your Name / Channel Handle <span className="text-orange-500">*</span>
+              <label
+                htmlFor="dm-name"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+              >
+                Your Name / Channel Handle{" "}
+                <span className="text-orange-500">*</span>
               </label>
               <input
                 id="dm-name"
@@ -187,19 +231,29 @@ export const DMPage: React.FC<DMPageProps> = ({
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
-                  if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
+                  if (errors.name)
+                    setErrors((prev) => ({ ...prev, name: undefined }));
                 }}
                 placeholder="e.g. Alex (Apex History)"
                 className={`w-full rounded-2xl border bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                  errors.name ? 'border-red-500' : 'border-stone-300 dark:border-stone-700'
+                  errors.name
+                    ? "border-red-500"
+                    : "border-stone-300 dark:border-stone-700"
                 }`}
                 required
               />
-              {errors.name && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.name}</p>}
+              {errors.name && (
+                <p className="mt-1.5 text-xs text-red-500 font-medium">
+                  {errors.name}
+                </p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="dm-email" className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+              <label
+                htmlFor="dm-email"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+              >
                 Your Email Address <span className="text-orange-500">*</span>
               </label>
               <input
@@ -208,22 +262,32 @@ export const DMPage: React.FC<DMPageProps> = ({
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+                  if (errors.email)
+                    setErrors((prev) => ({ ...prev, email: undefined }));
                 }}
                 placeholder="alex@channel.com"
                 className={`w-full rounded-2xl border bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                  errors.email ? 'border-red-500' : 'border-stone-300 dark:border-stone-700'
+                  errors.email
+                    ? "border-red-500"
+                    : "border-stone-300 dark:border-stone-700"
                 }`}
                 required
               />
-              {errors.email && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.email}</p>}
+              {errors.email && (
+                <p className="mt-1.5 text-xs text-red-500 font-medium">
+                  {errors.email}
+                </p>
+              )}
             </div>
           </div>
 
           {/* Project Focus & Timeline */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="dm-project-type" className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+              <label
+                htmlFor="dm-project-type"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+              >
                 Editorial Focus
               </label>
               <select
@@ -232,17 +296,32 @@ export const DMPage: React.FC<DMPageProps> = ({
                 onChange={(e) => setProjectType(e.target.value)}
                 className="w-full rounded-2xl border border-stone-300 bg-stone-50/50 px-4 py-3 text-sm text-stone-900 dark:border-stone-700 dark:bg-stone-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 [&>option]:bg-white [&>option]:text-stone-900 dark:[&>option]:bg-stone-900 dark:[&>option]:text-stone-100"
               >
-                <option value="Map Animation">3D Map Animation (Geopolitical / Route Flyover)</option>
-                <option value="Explainer Videos">Explainer Video Essay (High-Retention)</option>
-                <option value="SaaS Animation">SaaS Product / UI Motion Graphics</option>
-                <option value="Full Video Editing Suite">Full YouTube Episode Post-Production</option>
-                <option value="Sound Design & Finishing">Audio Engineering &amp; Color Finishing</option>
-                <option value="Other / Custom Request">Custom Creative Brief</option>
+                <option value="Map Animation">
+                  3D Map Animation (Geopolitical / Route Flyover)
+                </option>
+                <option value="Explainer Videos">
+                  Explainer Video Essay (High-Retention)
+                </option>
+                <option value="SaaS Animation">
+                  SaaS Product / UI Motion Graphics
+                </option>
+                <option value="Full Video Editing Suite">
+                  Full YouTube Episode Post-Production
+                </option>
+                <option value="Sound Design & Finishing">
+                  Audio Engineering &amp; Color Finishing
+                </option>
+                <option value="Other / Custom Request">
+                  Custom Creative Brief
+                </option>
               </select>
             </div>
 
             <div>
-              <label htmlFor="dm-budget" className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
+              <label
+                htmlFor="dm-budget"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+              >
                 Target Timeline
               </label>
               <select
@@ -251,19 +330,31 @@ export const DMPage: React.FC<DMPageProps> = ({
                 onChange={(e) => setBudget(e.target.value)}
                 className="w-full rounded-2xl border border-stone-300 bg-stone-50/50 px-4 py-3 text-sm text-stone-900 dark:border-stone-700 dark:bg-stone-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 [&>option]:bg-white [&>option]:text-stone-900 dark:[&>option]:bg-stone-900 dark:[&>option]:text-stone-100"
               >
-                <option value="Standard Turnaround (3-5 days)">Standard Turnaround (3–5 days)</option>
-                <option value="Rush Delivery (24-48 Hours)">Rush Delivery (24–48 Hours)</option>
+                <option value="Standard Turnaround (3-5 days)">
+                  Standard Turnaround (3–5 days)
+                </option>
+                <option value="Rush Delivery (24-48 Hours)">
+                  Rush Delivery (24–48 Hours)
+                </option>
                 <option value="Single Video Pilot">Single Video Pilot</option>
-                <option value="Ongoing Monthly Retainer">Ongoing Channel Retainer</option>
-                <option value="Discuss Scope First">Discuss Scope &amp; Quote First</option>
+                <option value="Ongoing Monthly Retainer">
+                  Ongoing Channel Retainer
+                </option>
+                <option value="Discuss Scope First">
+                  Discuss Scope &amp; Quote First
+                </option>
               </select>
             </div>
           </div>
 
           {/* Message Area */}
           <div>
-            <label htmlFor="dm-message" className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2">
-              Project Brief &amp; Reference Links <span className="text-orange-500">*</span>
+            <label
+              htmlFor="dm-message"
+              className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+            >
+              Project Brief &amp; Reference Links{" "}
+              <span className="text-orange-500">*</span>
             </label>
             <textarea
               id="dm-message"
@@ -271,15 +362,22 @@ export const DMPage: React.FC<DMPageProps> = ({
               value={message}
               onChange={(e) => {
                 setMessage(e.target.value);
-                if (errors.message) setErrors((prev) => ({ ...prev, message: undefined }));
+                if (errors.message)
+                  setErrors((prev) => ({ ...prev, message: undefined }));
               }}
               placeholder="Outline your video concept, desired pacing or visual style, rough runtime, and any link to assets or footage..."
               className={`w-full rounded-2xl border bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-                errors.message ? 'border-red-500' : 'border-stone-300 dark:border-stone-700'
+                errors.message
+                  ? "border-red-500"
+                  : "border-stone-300 dark:border-stone-700"
               }`}
               required
             />
-            {errors.message && <p className="mt-1.5 text-xs text-red-500 font-medium">{errors.message}</p>}
+            {errors.message && (
+              <p className="mt-1.5 text-xs text-red-500 font-medium">
+                {errors.message}
+              </p>
+            )}
           </div>
 
           {/* Action Row */}
@@ -311,7 +409,11 @@ export const DMPage: React.FC<DMPageProps> = ({
                   title="Copy email address"
                   aria-label="Copy email address"
                 >
-                  {copiedEmail ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
+                  {copiedEmail ? (
+                    <Check className="h-3.5 w-3.5 text-emerald-500" />
+                  ) : (
+                    <Copy className="h-3.5 w-3.5" />
+                  )}
                 </button>
               </div>
             </div>

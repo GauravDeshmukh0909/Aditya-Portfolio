@@ -1,6 +1,6 @@
-import React from 'react';
-import { ActivePage } from '../types';
-import { Youtube, FolderOpen, Mail, Sparkles, Settings } from 'lucide-react';
+import React from "react";
+import { ActivePage } from "../types";
+import { Youtube, FolderOpen, Mail, Sparkles, Settings } from "lucide-react";
 
 interface FooterProps {
   brandName: string;
@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({
   contactEmail,
   youtubeUrl,
   driveFolderUrl,
-  profileImageUrl = '/profile.jpg',
+  profileImageUrl = "/profile.jpg",
   setActivePage,
   onOpenDriveGuide,
   onOpenEditModal,
@@ -41,8 +41,9 @@ export const Footer: React.FC<FooterProps> = ({
                 {brandName}
               </span>
             </div>
-            <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
-              High-Retention Video Editing &bull; 3D Map Animations &bull; Explainer Breakdowns &bull; SaaS Motion
+            <p className="mt-3 p-2 text-xs text-stone-500 dark:text-stone-400">
+              High-Retention Video Editing &bull; 3D Map Animations &bull;
+              Explainer Breakdowns &bull; SaaS Motion
             </p>
           </div>
 
@@ -50,8 +51,8 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-medium">
             <button
               onClick={() => {
-                setActivePage('home');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setActivePage("home");
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
             >
@@ -59,9 +60,9 @@ export const Footer: React.FC<FooterProps> = ({
             </button>
             <button
               onClick={() => {
-                setActivePage('categories');
-                const el = document.getElementById('categories');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                setActivePage("categories");
+                const el = document.getElementById("categories");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
             >
@@ -69,9 +70,9 @@ export const Footer: React.FC<FooterProps> = ({
             </button>
             <button
               onClick={() => {
-                setActivePage('about');
-                const el = document.getElementById('about');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                setActivePage("about");
+                const el = document.getElementById("about");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
             >
@@ -79,8 +80,8 @@ export const Footer: React.FC<FooterProps> = ({
             </button>
             <button
               onClick={() => {
-                setActivePage('dm');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setActivePage("dm");
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
             >
@@ -88,9 +89,9 @@ export const Footer: React.FC<FooterProps> = ({
             </button>
             <button
               onClick={() => {
-                setActivePage('contact');
-                const el = document.getElementById('contact');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                setActivePage("contact");
+                const el = document.getElementById("contact");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
               className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
             >
@@ -121,29 +122,22 @@ export const Footer: React.FC<FooterProps> = ({
             >
               <FolderOpen className="h-4 w-4" />
             </a>
-
-            <button
-              onClick={onOpenDriveGuide}
-              className="px-2.5 py-1.5 rounded-lg border border-stone-200 dark:border-stone-800 text-xs font-medium hover:border-orange-300 hover:text-orange-600 transition-colors"
-              title="Drive setup instructions"
-            >
-              Drive Guide
-            </button>
-
-            <button
-              onClick={onOpenEditModal}
-              className="p-2 rounded-lg border border-stone-200 dark:border-stone-800 text-stone-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
-              title="Customize portfolio content"
-              aria-label="Customize content"
-            >
-              <Settings className="h-4 w-4" />
-            </button>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-stone-100 dark:border-stone-900 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-2">
-          <p>&copy; {new Date().getFullYear()} {brandName}. All rights reserved.</p>
-          <p>Direct inquiries: <a href={`mailto:${contactEmail}`} className="underline hover:text-orange-500">{contactEmail}</a></p>
+          <p>
+            &copy; {new Date().getFullYear()} {brandName}. All rights reserved.
+          </p>
+          <p>
+            Direct inquiries:{" "}
+            <a
+              href={`mailto:${contactEmail}`}
+              className="underline hover:text-orange-500"
+            >
+              {contactEmail}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

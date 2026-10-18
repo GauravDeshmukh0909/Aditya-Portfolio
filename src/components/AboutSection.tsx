@@ -45,7 +45,7 @@ const SoftwareLogo: React.FC<{
   }
 
   return (
-    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-stone-100 dark:bg-stone-800 p-1 group-hover:scale-105 transition-transform duration-300">
+    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-stone-100 dark:bg-stone-800 group-hover:scale-105 transition-transform duration-300">
       <img
         src={imageSrc}
         alt={`${software.name} logo`}
@@ -105,15 +105,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               Creative Vision &amp; Workflow
             </h2>
           </div>
-
-          {onOpenEditModal && (
-            <button
-              onClick={onOpenEditModal}
-              className="self-start md:self-end text-xs font-semibold text-stone-500 hover:text-orange-600 dark:text-stone-400 dark:hover:text-orange-400 transition-colors"
-            >
-              Edit Studio Copy &rarr;
-            </button>
-          )}
         </div>
 
         {/* Bio + YouTube Channel Presentation Grid */}
@@ -243,16 +234,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 href={content.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex max-w-60 items-center justify-center rounded-full bg-stone-900 px-6 py-3.5 text-sm font-bold text-white hover:bg-stone-800 dark:bg-white dark:text-stone-900 dark:hover:bg-stone-100 transition-all shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                className="inline-flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-3.5 py-2 text-l font-semibold text-stone-700 hover:border-orange-300 hover:text-orange-600 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-300 dark:hover:border-orange-500 dark:hover:text-orange-400 shadow-xs transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
               >
-                <div className="flex items-center justify-center gap-2">
-                  <img
-                    src="./video.png"
-                    alt=""
-                    className="h-6 w-6 text-red-500 dark:text-red-600"
-                  />
-                  <span className="text-center">View Channel</span>
-                </div>
+                <img src="./video.png" alt="" className="h-8 w-8" />
+                <span>View Channel</span>
               </a>
             </div>
           </div>

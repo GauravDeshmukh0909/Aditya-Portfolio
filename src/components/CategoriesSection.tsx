@@ -99,7 +99,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
             href={driveFolderUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-stone-900 px-4 py-2.5 text-xs font-bold text-white hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200 transition-colors shadow-sm"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-stone-200 bg-white px-3.5 py-2 text-xs font-semibold text-stone-700 hover:border-orange-300 hover:text-orange-600 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-300 dark:hover:border-orange-500 dark:hover:text-orange-400 shadow-xs transition-colors"
           >
             <FolderOpen className="h-3.5 w-3.5 text-orange-500" />
             <span>Drive Folder</span>

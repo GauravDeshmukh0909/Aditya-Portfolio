@@ -250,32 +250,21 @@ export const CategoryCarousel: React.FC<CategoryCarouselProps> = ({
                     </div>
 
                     {/* Metadata Card Footer */}
-                    <div className="flex flex-col justify-between p-3.5 pt-3">
+                    <div className="flex justify-between  p-1 pt-3">
                       <div>
                         <h4 className="font-bold text-stone-900 dark:text-stone-100 text-sm line-clamp-1 transition-colors">
                           {video.title}
                         </h4>
                       </div>
-
-                      <div className="mt-3 flex items-center justify-between pt-2.5 border-t border-stone-100 dark:border-stone-800 text-xs text-stone-500 dark:text-stone-400">
-                        <button
-                          onClick={() =>
-                            onSelectVideo(video, category.title, isPortrait)
-                          }
-                          className="inline-flex items-center gap-1.5 font-bold text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors focus:outline-none cursor-pointer"
-                        >
-                          <Play className="h-3 w-3 fill-current" />
-                          <span>Watch Preview</span>
-                        </button>
-
+                      <div>
                         <a
                           href={video.driveViewUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 hover:text-stone-900 dark:hover:text-white transition-colors"
+                          className="inline-flex items-center gap-1 text-stone-500 hover:text-orange-600 dark:text-stone-400 dark:hover:text-orange-400 transition-colors"
                           title="Open original in Drive"
                         >
-                          <span>Drive</span>
+                          <span className="text-[12px]">Drive</span>
                           <ExternalLink className="h-3 w-3" />
                         </a>
                       </div>

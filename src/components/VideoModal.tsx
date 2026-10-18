@@ -78,9 +78,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         {/* Header Bar */}
         <div className="relative flex items-center justify-between border-b border-stone-200/80 dark:border-stone-800/80 px-4 py-3 sm:px-6 bg-white/95 dark:bg-stone-900/90 backdrop-blur-md">
           <div className="flex items-center gap-2.5 overflow-hidden pr-3">
-            <span className="rounded-full bg-orange-500/10 dark:bg-orange-500/20 px-2.5 py-0.5 text-xs font-semibold text-orange-700 dark:text-orange-400 shrink-0 border border-orange-500/20 dark:border-orange-500/30">
-              {isPortrait ? "9:16 Reel" : "16:9"} • {categoryTitle}
-            </span>
             <h3
               id="video-modal-title"
               className="text-sm sm:text-base font-bold text-stone-900 dark:text-white truncate"
@@ -90,17 +87,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <a
-              href={video.driveViewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-stone-200 bg-stone-100 px-3 py-1.5 text-xs font-medium text-stone-700 hover:bg-stone-200 hover:text-stone-900 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200 dark:hover:bg-stone-700 dark:hover:text-white transition-colors"
-              title="Open full resolution in Google Drive"
-            >
-              <span>Drive</span>
-              <ExternalLink className="h-3.5 w-3.5" />
-            </a>
-
             <button
               onClick={onClose}
               className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-stone-200 bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-900 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
@@ -122,48 +108,6 @@ export const VideoModal: React.FC<VideoModalProps> = ({
             allow="autoplay; fullscreen"
             allowFullScreen
           />
-        </div>
-
-        {/* Modal Footer with Controls */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-stone-200/80 dark:border-stone-800/80 px-4 py-3 sm:px-6 text-xs text-stone-500 dark:text-stone-400 bg-white/95 dark:bg-stone-900/90">
-          <div className="flex items-center gap-2 truncate">
-            <span className="font-mono text-stone-500 dark:text-stone-400 truncate">
-              {video.rawTitle}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            {onPrevVideo && (
-              <button
-                onClick={onPrevVideo}
-                disabled={!hasPrev}
-                className="inline-flex items-center gap-1 rounded-lg border border-stone-200 bg-stone-100 px-2.5 py-1.5 text-xs font-medium text-stone-700 hover:bg-stone-200 hover:text-stone-900 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-white disabled:opacity-40 transition-colors"
-                aria-label="Previous video"
-              >
-                <ChevronLeft className="h-3.5 w-3.5" />
-                <span>Prev (←)</span>
-              </button>
-            )}
-
-            {onNextVideo && (
-              <button
-                onClick={onNextVideo}
-                disabled={!hasNext}
-                className="inline-flex items-center gap-1 rounded-lg border border-stone-200 bg-stone-100 px-2.5 py-1.5 text-xs font-medium text-stone-700 hover:bg-stone-200 hover:text-stone-900 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-white disabled:opacity-40 transition-colors"
-                aria-label="Next video"
-              >
-                <span>Next (→)</span>
-                <ChevronRight className="h-3.5 w-3.5" />
-              </button>
-            )}
-
-            <button
-              onClick={onClose}
-              className="inline-flex items-center gap-1 rounded-lg border border-stone-300 bg-white px-2.5 py-1.5 text-xs font-medium text-stone-700 hover:bg-stone-100 hover:text-stone-900 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700 dark:hover:text-white transition-colors"
-            >
-              Close
-            </button>
-          </div>
         </div>
       </div>
     </div>

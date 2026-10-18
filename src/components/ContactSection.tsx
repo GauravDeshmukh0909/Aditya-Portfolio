@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
-import { Mail, Youtube, ExternalLink, Copy, Check, MessageSquare, ArrowRight, ShieldCheck, ArrowUpRight } from 'lucide-react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import React, { useState } from "react";
+import {
+  Mail,
+  Youtube,
+  ExternalLink,
+  Copy,
+  Check,
+  MessageSquare,
+  ArrowRight,
+  ShieldCheck,
+  ArrowUpRight,
+} from "lucide-react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 interface ContactSectionProps {
   contactEmail: string;
@@ -16,7 +26,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   youtubeUrl,
   driveFolderUrl,
   fiverrUrl,
-  profileImageUrl = '/profile.jpg',
+  profileImageUrl = "/profile.jpg",
   onNavigateToDM,
 }) => {
   const [copied, setCopied] = useState(false);
@@ -33,12 +43,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch (e) {
-      console.warn('Copy failed:', e);
+      console.warn("Copy failed:", e);
     }
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 max-w-7xl mx-auto px-6 lg:px-10 scroll-mt-16">
+    <section
+      id="contact"
+      className="py-12 sm:py-16 max-w-7xl mx-auto px-6 lg:px-10 scroll-mt-10"
+    >
       <div
         ref={cardRef as any}
         style={cardStyle}
@@ -62,17 +75,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-stone-900" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-stone-900 dark:text-white">Aditya Anil Khekade &bull; EnoughEditz</h4>
-              <p className="text-xs text-stone-500 dark:text-stone-400">Lead Video Editor &bull; Available for retainers &amp; individual projects</p>
+              <h4 className="text-sm font-bold text-stone-900 dark:text-white">
+                Aditya Anil Khekade &bull; EnoughEditz
+              </h4>
+              <p className="text-xs text-stone-500 dark:text-stone-400">
+                Lead Video Editor &bull; Available for retainers &amp;
+                individual projects
+              </p>
             </div>
           </div>
 
           {/* Clean editorial kicker (Zero-pill discipline) */}
           <div className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-500 dark:text-stone-400 mb-4">
             <span>Project Collaboration</span>
-            <span className="text-orange-500" aria-hidden="true">/</span>
+            <span className="text-orange-500" aria-hidden="true">
+              /
+            </span>
             <span>Channel Retainers</span>
-            <span className="text-orange-500" aria-hidden="true">/</span>
+            <span className="text-orange-500" aria-hidden="true">
+              /
+            </span>
             <span>Video Essays</span>
           </div>
 
@@ -81,7 +103,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </h2>
 
           <p className="mt-5 text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed font-normal">
-            Whether you need a high-retention map animation for your upcoming documentary, a sleek SaaS feature demo, or a complete channel editing overhaul, reach out directly.
+            Whether you need a high-retention map animation for your upcoming
+            documentary, a sleek SaaS feature demo, or a complete channel
+            editing overhaul, reach out directly.
           </p>
 
           {/* Prominent Action Bar with modern gradients */}
@@ -106,7 +130,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
           {/* Email Clickable & Copy Row */}
           <div className="mt-10 flex flex-wrap items-center gap-3 pt-8 border-t border-stone-200/80 dark:border-stone-800/90 text-sm">
-            <span className="text-stone-500 dark:text-stone-400">Direct Inquiries:</span>
+            <span className="text-stone-500 dark:text-stone-400">
+              Direct Inquiries:
+            </span>
             <div className="inline-flex items-center gap-2.5 rounded-xl bg-stone-100/90 px-4 py-2 border border-stone-200 dark:bg-stone-800/80 dark:border-stone-700">
               <a
                 href={`mailto:${contactEmail}`}
@@ -120,10 +146,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 title="Copy email to clipboard"
                 aria-label="Copy email address"
               >
-                {copied ? <Check className="h-4 w-4 text-emerald-600 dark:text-emerald-400" /> : <Copy className="h-4 w-4" />}
+                {copied ? (
+                  <Check className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                ) : (
+                  <Copy className="h-4 w-4" />
+                )}
               </button>
             </div>
-            {copied && <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Email address copied!</span>}
+            {copied && (
+              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+                Email address copied!
+              </span>
+            )}
           </div>
 
           {/* Links to YouTube and Google Drive */}
@@ -139,7 +173,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
             </a>
 
-            <span className="text-stone-300 dark:text-stone-700" aria-hidden="true">•</span>
+            <span
+              className="text-stone-300 dark:text-stone-700"
+              aria-hidden="true"
+            >
+              •
+            </span>
 
             <a
               href={driveFolderUrl}
@@ -153,7 +192,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
             {fiverrUrl && (
               <>
-                <span className="text-stone-300 dark:text-stone-700" aria-hidden="true">•</span>
+                <span
+                  className="text-stone-300 dark:text-stone-700"
+                  aria-hidden="true"
+                >
+                  •
+                </span>
                 <a
                   href={fiverrUrl}
                   target="_blank"
