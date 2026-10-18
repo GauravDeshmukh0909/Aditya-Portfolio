@@ -79,7 +79,7 @@ export const Hero: React.FC<HeroProps> = ({
                 •
               </span>
               <span className="text-stone-600 dark:text-stone-300 font-medium">
-                Available for Selected Edits &amp; Retainers
+                Available for Work
               </span>
             </div>
           </div>
