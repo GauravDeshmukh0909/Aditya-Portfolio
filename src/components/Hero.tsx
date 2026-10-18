@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({
   });
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-24 sm:pt-20 sm:pb-36">
+    <section className="relative overflow-hidden pt-12 pb-8 sm:pt-20 sm:pb-16">
       {/* Dynamic ambient gradient lighting */}
       <div
         className="pointer-events-none absolute -top-48 left-1/2 -z-10 h-[640px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-orange-500/15 via-amber-400/10 to-transparent blur-3xl dark:from-orange-600/20 dark:via-amber-500/10 dark:to-transparent"
