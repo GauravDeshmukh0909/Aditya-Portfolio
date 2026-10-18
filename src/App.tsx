@@ -176,7 +176,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 selection:bg-orange-500/20 transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 selection:bg-orange-500/20 transition-colors duration-200 overflow-x-hidden w-full max-w-full">
       {/* Navigation */}
       <Navbar
         activePage={activePage}
@@ -192,7 +192,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1">
+      <main className="flex-1 w-full overflow-x-hidden">
         {activePage === 'dm' ? (
           /* Dedicated DM Page */
           <DMPage

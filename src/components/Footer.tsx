@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenEditModal,
 }) => {
   return (
-    <footer className="border-t border-stone-200/80 bg-white dark:border-stone-800/80 dark:bg-stone-950 py-12 text-sm text-stone-500 dark:text-stone-400">
+    <footer className="border-t border-stone-200/80 bg-white dark:border-stone-800/80 dark:bg-stone-950 py-8 sm:py-12 text-sm text-stone-500 dark:text-stone-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & info */}
@@ -41,20 +41,20 @@ export const Footer: React.FC<FooterProps> = ({
                 {brandName}
               </span>
             </div>
-            <p className="mt-3 p-2 text-xs text-stone-500 dark:text-stone-400">
+            <p className="mt-2 text-xs text-stone-500 dark:text-stone-400 max-w-sm">
               High-Retention Video Editing &bull; 3D Map Animations &bull;
               Explainer Breakdowns &bull; SaaS Motion
             </p>
           </div>
 
           {/* Quick Nav Links */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-6 text-xs font-medium">
             <button
               onClick={() => {
                 setActivePage("home");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+              className="py-1 px-2 rounded-lg hover:text-orange-600 dark:hover:text-orange-400 transition-colors cursor-pointer"
             >
               Home
             </button>
@@ -64,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({
                 const el = document.getElementById("categories");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+              className="py-1 px-2 rounded-lg hover:text-orange-600 dark:hover:text-orange-400 transition-colors cursor-pointer"
             >
               Categories
             </button>
@@ -74,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({
                 const el = document.getElementById("about");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+              className="py-1 px-2 rounded-lg hover:text-orange-600 dark:hover:text-orange-400 transition-colors cursor-pointer"
             >
               About
             </button>
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({
                 setActivePage("dm");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+              className="py-1 px-2 rounded-lg hover:text-orange-600 dark:hover:text-orange-400 transition-colors cursor-pointer"
             >
               DM Inquiry
             </button>
@@ -93,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({
                 const el = document.getElementById("contact");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
+              className="py-1 px-2 rounded-lg hover:text-orange-600 dark:hover:text-orange-400 transition-colors cursor-pointer"
             >
               Contact
             </button>
@@ -105,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({
               href={youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-stone-200 dark:border-stone-800 hover:text-red-500 transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 dark:border-stone-800 hover:text-red-500 hover:border-red-300 transition-colors"
               title="YouTube Channel"
               aria-label="YouTube Channel"
             >
@@ -116,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({
               href={driveFolderUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-stone-200 dark:border-stone-800 hover:text-amber-500 transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-stone-200 dark:border-stone-800 hover:text-amber-500 hover:border-amber-300 transition-colors"
               title="Google Drive Library"
               aria-label="Google Drive Library"
             >
@@ -125,7 +125,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-stone-100 dark:border-stone-900 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-2">
+        <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-stone-100 dark:border-stone-900 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-2 text-center sm:text-left">
           <p>
             &copy; {new Date().getFullYear()} {brandName}. All rights reserved.
           </p>
@@ -133,7 +133,7 @@ export const Footer: React.FC<FooterProps> = ({
             Direct inquiries:{" "}
             <a
               href={`mailto:${contactEmail}`}
-              className="underline hover:text-orange-500"
+              className="underline hover:text-orange-500 break-all"
             >
               {contactEmail}
             </a>

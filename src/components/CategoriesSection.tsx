@@ -68,26 +68,19 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
   return (
     <section
       id="categories"
-      className="py-20 sm:py-28 max-w-7xl mx-auto px-6 lg:px-10 scroll-mt-16"
+      className="py-12 sm:py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 scroll-mt-16"
     >
       {/* Section Header */}
       <div
         ref={headerRef as any}
         style={headerStyle}
-        className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+        className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12"
       >
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-500 dark:text-stone-400 mb-3">
-            <span>Portfolio Archive</span>
-            <span className="text-orange-500" aria-hidden="true">
-              /
-            </span>
-            <span>Dynamic Drive Folders</span>
-          </div>
-          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white">
+          <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white">
             Categories
           </h2>
-          <p className="mt-3 text-base text-stone-600 dark:text-stone-400 max-w-2xl leading-relaxed">
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-stone-600 dark:text-stone-400 max-w-2xl leading-relaxed">
             Explore different styles of editing, from motion graphics to
             detailed visual storytelling
           </p>
@@ -108,45 +101,49 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
         </div>
       </div>
 
-      {/* Segmented Filter Control */}
+      {/* Segmented Filter Control with Mobile Native Horizontal Scroll */}
       {categories.length > 1 && (
-        <div className="flex flex-wrap items-center gap-1.5 p-1.5 mb-10 rounded-2xl bg-stone-100/90 dark:bg-stone-900/80 border border-stone-200/80 dark:border-stone-800 max-w-fit">
-          <button
-            onClick={() => setSelectedFilter("all")}
-            className={`rounded-xl px-4 py-2 text-xs font-bold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
-              selectedFilter === "all"
-                ? "bg-white text-stone-900 shadow-sm dark:bg-stone-800 dark:text-white"
-                : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white"
-            }`}
-          >
-            All Disciplines ({categories.length})
-          </button>
+        <div className="w-full overflow-x-auto no-scrollbar pb-2 sm:pb-0 mb-8 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="inline-flex items-center gap-1.5 p-1.5 rounded-2xl bg-stone-100/90 dark:bg-stone-900/80 border border-stone-200/80 dark:border-stone-800 min-w-max">
+            <button
+              onClick={() => setSelectedFilter("all")}
+              className={`rounded-xl px-3.5 sm:px-4 py-2 text-xs font-bold transition-all whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer ${
+                selectedFilter === "all"
+                  ? "bg-white text-stone-900 shadow-sm dark:bg-stone-800 dark:text-white"
+                  : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white"
+              }`}
+            >
+              All Disciplines ({categories.length})
+            </button>
 
-          {categories.map((cat) => {
-            const isCurrent = selectedFilter === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedFilter(cat.id)}
-                className={`rounded-xl px-4 py-2 text-xs font-bold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
-                  isCurrent
-                    ? "bg-white text-stone-900 shadow-sm dark:bg-stone-800 dark:text-white"
-                    : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white"
-                }`}
-              >
-                {cat.title} ({cat.videos.length})
-              </button>
-            );
-          })}
+            {categories.map((cat) => {
+              const isCurrent = selectedFilter === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedFilter(cat.id)}
+                  className={`rounded-xl px-3.5 sm:px-4 py-2 text-xs font-bold transition-all whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer ${
+                    isCurrent
+                      ? "bg-white text-stone-900 shadow-sm dark:bg-stone-800 dark:text-white"
+                      : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white"
+                  }`}
+                >
+                  {cat.title} ({cat.videos.length})
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 
       {/* Error Notice if any */}
       {error && (
-        <div className="mb-10 rounded-2xl border border-amber-200 bg-amber-50/80 p-5 text-sm text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200 flex items-center gap-3.5">
+        <div className="mb-8 sm:mb-10 rounded-2xl border border-amber-200 bg-amber-50/80 p-4 sm:p-5 text-sm text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-200 flex items-center gap-3.5">
           <AlertCircle className="h-5 w-5 text-amber-500 shrink-0" />
           <div>
-            <p className="font-bold">Google Drive Sync Notice</p>
+            <p className="font-bold text-xs sm:text-sm">
+              Google Drive Sync Notice
+            </p>
             <p className="text-xs mt-0.5">
               {error}. Serving cached master edits seamlessly.
             </p>
@@ -156,17 +153,17 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
 
       {/* Loading Skeleton */}
       {isLoading && categories.length === 0 ? (
-        <div className="space-y-10 animate-pulse">
+        <div className="space-y-8 sm:space-y-10 animate-pulse">
           {[1, 2].map((i) => (
             <div
               key={i}
-              className="h-96 rounded-3xl bg-stone-200/70 dark:bg-stone-800/50"
+              className="h-80 sm:h-96 rounded-2xl sm:rounded-3xl bg-stone-200/70 dark:bg-stone-800/50"
             />
           ))}
         </div>
       ) : (
         /* Category Carousels List */
-        <div className="space-y-16">
+        <div className="space-y-10 sm:space-y-16">
           {filteredCategories.map((category) => (
             <RevealOnScroll
               key={category.id}

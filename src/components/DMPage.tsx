@@ -94,12 +94,12 @@ export const DMPage: React.FC<DMPageProps> = ({
   };
 
   return (
-    <div className="py-14 sm:py-24 max-w-4xl mx-auto px-6 lg:px-10">
+    <div className="py-8 sm:py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-10">
       {/* Back button */}
-      <div className="mb-10">
+      <div className="mb-6 sm:mb-10">
         <button
           onClick={onBackToPortfolio}
-          className="group inline-flex items-center gap-2 text-sm font-semibold text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg py-1 px-2 -ml-2"
+          className="group inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg py-1.5 px-2.5 -ml-2.5 cursor-pointer"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           <span>Back to Portfolio Overview</span>
@@ -107,10 +107,10 @@ export const DMPage: React.FC<DMPageProps> = ({
       </div>
 
       {/* Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-8 sm:mb-12">
         {/* Editor Profile Avatar */}
-        <div className="inline-flex items-center gap-3 rounded-full border border-stone-200/90 bg-white/90 p-1.5 pr-4 shadow-xs backdrop-blur-md dark:border-stone-800 dark:bg-stone-900/90 mb-5 transition-transform hover:scale-[1.02]">
-          <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-2 ring-orange-500/80 shadow-xs">
+        <div className="inline-flex items-center gap-2.5 sm:gap-3 rounded-full border border-stone-200/90 bg-white/90 p-1 sm:p-1.5 pr-3.5 sm:pr-4 shadow-xs backdrop-blur-md dark:border-stone-800 dark:bg-stone-900/90 mb-4 sm:mb-5 transition-transform hover:scale-[1.02]">
+          <div className="relative h-8 w-8 sm:h-9 sm:w-9 shrink-0 overflow-hidden rounded-full ring-2 ring-orange-500/80 shadow-xs">
             <img
               src={profileImageUrl}
               alt="EnoughEditz Lead Editor"
@@ -128,17 +128,17 @@ export const DMPage: React.FC<DMPageProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-500 dark:text-stone-400 mb-3">
+        <div className="flex items-center justify-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-500 dark:text-stone-400 mb-2 sm:mb-3">
           <span>Client Intake</span>
           <span className="text-orange-500" aria-hidden="true">
             /
           </span>
           <span>Direct Inquiry</span>
         </div>
-        <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white">
+        <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-white">
           Commission an Edit
         </h1>
-        <p className="mt-4 text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto leading-relaxed">
+        <p className="mt-2.5 sm:mt-4 text-sm sm:text-base md:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto leading-relaxed">
           Provide your project scope, reference videos, and delivery deadline
           below to compose your project inquiry.
         </p>
@@ -146,19 +146,19 @@ export const DMPage: React.FC<DMPageProps> = ({
 
       {/* Submission Status Banner */}
       {submitted && (
-        <div className="mb-10 rounded-3xl border border-orange-200 bg-orange-50/90 p-8 dark:border-orange-900/60 dark:bg-orange-950/40 text-stone-900 dark:text-stone-100 shadow-lg animate-in fade-in duration-200">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-600 to-amber-500 text-white font-bold shadow-md shadow-orange-500/20">
-              <Mail className="h-6 w-6" />
+        <div className="mb-8 sm:mb-10 rounded-2xl sm:rounded-3xl border border-orange-200 bg-orange-50/90 p-5 sm:p-8 dark:border-orange-900/60 dark:bg-orange-950/40 text-stone-900 dark:text-stone-100 shadow-lg animate-in fade-in duration-200">
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <div className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-600 to-amber-500 text-white font-bold shadow-md shadow-orange-500/20">
+              <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
             </div>
-            <div className="flex-1">
-              <h3 className="font-extrabold text-lg text-orange-950 dark:text-orange-200">
+            <div className="flex-1 w-full">
+              <h3 className="font-extrabold text-base sm:text-lg text-orange-950 dark:text-orange-200">
                 Email draft prepared in your mail app
               </h3>
-              <p className="mt-1.5 text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+              <p className="mt-1 text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
                 Your email client has been prepared with your inquiry addressed
                 to{" "}
-                <strong className="text-orange-700 dark:text-orange-300 font-semibold">
+                <strong className="text-orange-700 dark:text-orange-300 font-semibold break-all">
                   {contactEmail}
                 </strong>
                 .
@@ -170,10 +170,10 @@ export const DMPage: React.FC<DMPageProps> = ({
               </p>
 
               {/* Fallback actions */}
-              <div className="mt-6 flex flex-wrap gap-3 pt-4 border-t border-orange-200/80 dark:border-orange-900/60">
+              <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-3 pt-4 border-t border-orange-200/80 dark:border-orange-900/60">
                 <a
                   href={lastMailtoUrl}
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 px-4 py-2.5 text-xs font-bold text-white shadow-md hover:from-orange-500 hover:to-amber-400"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-amber-500 px-4 py-2.5 text-xs font-bold text-white shadow-md hover:from-orange-500 hover:to-amber-400"
                 >
                   <Mail className="h-4 w-4" />
                   <span>Re-open Mail App</span>
@@ -181,7 +181,7 @@ export const DMPage: React.FC<DMPageProps> = ({
 
                 <button
                   onClick={handleCopyDraft}
-                  className="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-semibold text-stone-800 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 shadow-xs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-semibold text-stone-800 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 shadow-xs cursor-pointer"
                 >
                   {copiedDraft ? (
                     <Check className="h-4 w-4 text-emerald-500" />
@@ -195,7 +195,7 @@ export const DMPage: React.FC<DMPageProps> = ({
 
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-semibold text-stone-800 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 shadow-xs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-xs font-semibold text-stone-800 hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 shadow-xs cursor-pointer"
                 >
                   {copiedEmail ? (
                     <Check className="h-4 w-4 text-emerald-500" />
@@ -213,14 +213,14 @@ export const DMPage: React.FC<DMPageProps> = ({
       )}
 
       {/* Main DM Form Card */}
-      <div className="rounded-3xl border border-stone-200/90 bg-white/90 p-8 sm:p-12 dark:border-stone-800 dark:bg-stone-900/90 shadow-xl backdrop-blur-md">
-        <form onSubmit={handleSubmit} className="space-y-7" noValidate>
+      <div className="rounded-2xl sm:rounded-3xl border border-stone-200/90 bg-white/90 p-5 sm:p-8 md:p-12 dark:border-stone-800 dark:bg-stone-900/90 shadow-xl backdrop-blur-md">
+        <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-7" noValidate>
           {/* Name & Email row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
               <label
                 htmlFor="dm-name"
-                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 sm:mb-2"
               >
                 Your Name / Channel Handle{" "}
                 <span className="text-orange-500">*</span>
@@ -235,7 +235,7 @@ export const DMPage: React.FC<DMPageProps> = ({
                     setErrors((prev) => ({ ...prev, name: undefined }));
                 }}
                 placeholder="e.g. Alex (Apex History)"
-                className={`w-full rounded-2xl border bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+                className={`w-full rounded-2xl border bg-stone-50/50 px-3.5 sm:px-4 py-3 text-base sm:text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                   errors.name
                     ? "border-red-500"
                     : "border-stone-300 dark:border-stone-700"
@@ -252,7 +252,7 @@ export const DMPage: React.FC<DMPageProps> = ({
             <div>
               <label
                 htmlFor="dm-email"
-                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 sm:mb-2"
               >
                 Your Email Address <span className="text-orange-500">*</span>
               </label>
@@ -266,7 +266,7 @@ export const DMPage: React.FC<DMPageProps> = ({
                     setErrors((prev) => ({ ...prev, email: undefined }));
                 }}
                 placeholder="alex@channel.com"
-                className={`w-full rounded-2xl border bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+                className={`w-full rounded-2xl border bg-stone-50/50 px-3.5 sm:px-4 py-3 text-base sm:text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                   errors.email
                     ? "border-red-500"
                     : "border-stone-300 dark:border-stone-700"
@@ -282,11 +282,11 @@ export const DMPage: React.FC<DMPageProps> = ({
           </div>
 
           {/* Project Focus & Timeline */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
               <label
                 htmlFor="dm-project-type"
-                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 sm:mb-2"
               >
                 Editorial Focus
               </label>
@@ -294,7 +294,7 @@ export const DMPage: React.FC<DMPageProps> = ({
                 id="dm-project-type"
                 value={projectType}
                 onChange={(e) => setProjectType(e.target.value)}
-                className="w-full rounded-2xl border border-stone-300 bg-stone-50/50 px-4 py-3 text-sm text-stone-900 dark:border-stone-700 dark:bg-stone-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 [&>option]:bg-white [&>option]:text-stone-900 dark:[&>option]:bg-stone-900 dark:[&>option]:text-stone-100"
+                className="w-full rounded-2xl border border-stone-300 bg-stone-50/50 px-3.5 sm:px-4 py-3 text-base sm:text-sm text-stone-900 dark:border-stone-700 dark:bg-stone-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 [&>option]:bg-white [&>option]:text-stone-900 dark:[&>option]:bg-stone-900 dark:[&>option]:text-stone-100"
               >
                 <option value="Map Animation">
                   3D Map Animation (Geopolitical / Route Flyover)
@@ -320,7 +320,7 @@ export const DMPage: React.FC<DMPageProps> = ({
             <div>
               <label
                 htmlFor="dm-budget"
-                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+                className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 sm:mb-2"
               >
                 Target Timeline
               </label>
@@ -328,7 +328,7 @@ export const DMPage: React.FC<DMPageProps> = ({
                 id="dm-budget"
                 value={budget}
                 onChange={(e) => setBudget(e.target.value)}
-                className="w-full rounded-2xl border border-stone-300 bg-stone-50/50 px-4 py-3 text-sm text-stone-900 dark:border-stone-700 dark:bg-stone-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 [&>option]:bg-white [&>option]:text-stone-900 dark:[&>option]:bg-stone-900 dark:[&>option]:text-stone-100"
+                className="w-full rounded-2xl border border-stone-300 bg-stone-50/50 px-3.5 sm:px-4 py-3 text-base sm:text-sm text-stone-900 dark:border-stone-700 dark:bg-stone-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 [&>option]:bg-white [&>option]:text-stone-900 dark:[&>option]:bg-stone-900 dark:[&>option]:text-stone-100"
               >
                 <option value="Standard Turnaround (3-5 days)">
                   Standard Turnaround (3–5 days)
@@ -351,7 +351,7 @@ export const DMPage: React.FC<DMPageProps> = ({
           <div>
             <label
               htmlFor="dm-message"
-              className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
+              className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1.5 sm:mb-2"
             >
               Project Brief &amp; Reference Links{" "}
               <span className="text-orange-500">*</span>
@@ -366,7 +366,7 @@ export const DMPage: React.FC<DMPageProps> = ({
                   setErrors((prev) => ({ ...prev, message: undefined }));
               }}
               placeholder="Outline your video concept, desired pacing or visual style, rough runtime, and any link to assets or footage..."
-              className={`w-full rounded-2xl border bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+              className={`w-full rounded-2xl border bg-stone-50/50 px-3.5 sm:px-4 py-3 text-base sm:text-sm text-stone-900 placeholder-stone-400 dark:bg-stone-950 dark:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                 errors.message
                   ? "border-red-500"
                   : "border-stone-300 dark:border-stone-700"
@@ -381,10 +381,10 @@ export const DMPage: React.FC<DMPageProps> = ({
           </div>
 
           {/* Action Row */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 border-t border-stone-100 dark:border-stone-800">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 pt-4 border-t border-stone-100 dark:border-stone-800">
             <button
               type="submit"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 px-9 py-4 text-sm font-bold text-white shadow-xl shadow-orange-600/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 px-7 sm:px-9 py-3.5 sm:py-4 text-sm font-bold text-white shadow-xl shadow-orange-600/25 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 cursor-pointer"
             >
               <Send className="h-4 w-4" />
               <span>Submit &amp; Open Mail Draft</span>
@@ -398,14 +398,14 @@ export const DMPage: React.FC<DMPageProps> = ({
               <div className="inline-flex items-center gap-2 mt-1">
                 <a
                   href={`mailto:${contactEmail}`}
-                  className="font-semibold text-stone-800 dark:text-stone-200 hover:text-orange-500 transition-colors"
+                  className="font-semibold text-stone-800 dark:text-stone-200 hover:text-orange-500 transition-colors break-all"
                 >
                   {contactEmail}
                 </a>
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="text-stone-400 hover:text-stone-800 dark:hover:text-white p-1 rounded-md"
+                  className="text-stone-400 hover:text-stone-800 dark:hover:text-white p-1 rounded-md cursor-pointer"
                   title="Copy email address"
                   aria-label="Copy email address"
                 >
