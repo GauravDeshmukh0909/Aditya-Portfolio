@@ -1,7 +1,11 @@
 import { EditableSiteContent } from "../types";
 
-const env = typeof import.meta !== 'undefined' && (import.meta as any).env ? (import.meta as any).env : {};
-const envDriveId = env.VITE_GOOGLE_DRIVE_ROOT_FOLDER_ID || "1SG65fVDS0ZnfQxnsQyjuKBnm8rpQMASY";
+const env =
+  typeof import.meta !== "undefined" && (import.meta as any).env
+    ? (import.meta as any).env
+    : {};
+const envDriveId =
+  env.VITE_GOOGLE_DRIVE_ROOT_FOLDER_ID || "1SG65fVDS0ZnfQxnsQyjuKBnm8rpQMASY";
 
 export const INITIAL_SITE_CONTENT: EditableSiteContent = {
   brandName: env.VITE_BRAND_NAME || "EnoughEditz",
@@ -40,13 +44,13 @@ export const INITIAL_SITE_CONTENT: EditableSiteContent = {
   softwareList: [
     {
       name: "Adobe Premiere Pro",
-      role: "Editorial & Pacing",
+      role: "Video Editing & Storytelling",
       color: "from-purple-500 to-indigo-600",
       image: "/premiere pro.png",
     },
     {
       name: "Adobe After Effects",
-      role: "Motion & VFX",
+      role: "Motion Graphics & Visual Effects",
       color: "from-indigo-500 to-blue-600",
       image: "/after effects.png",
     },
@@ -58,7 +62,7 @@ export const INITIAL_SITE_CONTENT: EditableSiteContent = {
     },
     {
       name: "Photoshop",
-      role: "Asset Rigging & Design",
+      role: "Visual Design & Asset Creation",
       color: "from-blue-500 to-cyan-600",
       image: "/photoshop.png",
     },
@@ -76,20 +80,23 @@ export const INITIAL_SITE_CONTENT: EditableSiteContent = {
 export const SOFTWARE_IMAGE_MAP: Record<string, string> = {
   "adobe premiere pro": "/premiere pro.png",
   "premiere pro": "/premiere pro.png",
-  "premiere": "/premiere pro.png",
+  premiere: "/premiere pro.png",
   "adobe after effects": "/after effects.png",
   "after effects": "/after effects.png",
-  "ae": "/after effects.png",
+  ae: "/after effects.png",
   "davinci resolve": "/davinchi resolve.png",
   "davinchi resolve": "/davinchi resolve.png",
-  "davinci": "/davinchi resolve.png",
-  "resolve": "/davinchi resolve.png",
-  "photoshop": "/photoshop.png",
+  davinci: "/davinchi resolve.png",
+  resolve: "/davinchi resolve.png",
+  photoshop: "/photoshop.png",
   "adobe photoshop": "/photoshop.png",
-  "ps": "/photoshop.png",
+  ps: "/photoshop.png",
 };
 
-export function getSoftwareImage(name: string, explicitImage?: string): string | undefined {
+export function getSoftwareImage(
+  name: string,
+  explicitImage?: string,
+): string | undefined {
   if (explicitImage && explicitImage.trim().length > 0) {
     return explicitImage;
   }
@@ -112,7 +119,10 @@ export function loadSavedSiteContent(): EditableSiteContent {
     const raw = localStorage.getItem(LOCAL_STORAGE_CONTENT_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      const merged: EditableSiteContent = { ...INITIAL_SITE_CONTENT, ...parsed };
+      const merged: EditableSiteContent = {
+        ...INITIAL_SITE_CONTENT,
+        ...parsed,
+      };
       if (Array.isArray(merged.softwareList)) {
         merged.softwareList = merged.softwareList.map((item) => ({
           ...item,
