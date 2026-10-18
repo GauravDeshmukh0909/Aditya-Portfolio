@@ -84,19 +84,6 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* Editorial Clean Kicker */}
-          <div className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-stone-500 dark:text-stone-400 mb-6">
-            <span>Post-Production</span>
-            <span className="text-orange-500" aria-hidden="true">
-              /
-            </span>
-            <span>3D Map Motion</span>
-            <span className="text-orange-500" aria-hidden="true">
-              /
-            </span>
-            <span>High-Retention Storytelling</span>
-          </div>
-
           {/* Primary Headline with Subtle Metallic-Orange Gradient Accent */}
           <h1 className="font-heading text-4xl font-extrabold tracking-tight text-stone-900 sm:text-6xl lg:text-7xl dark:text-white leading-[1.08] [text-wrap:balance]">
             Crafting{" "}
